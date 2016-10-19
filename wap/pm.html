@@ -12,7 +12,8 @@
     <script src="./js/zepto.js"></script>
     <link href="./css/font-awesome.min.css" rel="stylesheet">
     <script src="./js/idangerous.swiper.min.js"></script>
-
+    <script src="js/segment.min.js"></script>
+    <script src="js/ease.min.js"></script>
     <style>
 
         .banner {
@@ -128,7 +129,17 @@
 </head>
 <body>
 <header>
-    <p><i class="fa fa-navicon event-icon"></i>大数医达</p>
+    <section class="header">
+        <div id="menu-icon-wrapper" class="menu-icon-wrapper" style="visibility: visible;">
+            <svg width="700px" height="700px">
+                <path id="pathA" d="M 300 400 L 700 400 C 900 400 900 750 600 850 A 400 400 0 0 1 200 200 L 800 800" style="stroke-dashoffset: 5803.15; stroke-dasharray: 2901.57, 2981.57, 240;"></path>
+                <path id="pathB" d="M 300 500 L 700 500" style="stroke-dashoffset: 800; stroke-dasharray: 400, 480, 240;"></path>
+                <path id="pathC" d="M 700 600 L 300 600 C 100 600 100 200 400 150 A 400 380 0 1 1 200 800 L 800 200" style="stroke-dashoffset: 6993.11; stroke-dasharray: 3496.56, 3576.56, 240;"></path>
+            </svg>
+            <button id="menu-icon-trigger" class="menu-icon-trigger"></button>
+        </div>
+        <span class="header-title">大数医达</span>
+    </section>
 </header>
 <div class="banner">
     <h3>产品介绍</h3>
@@ -989,6 +1000,7 @@
 </div>
 
 <script src="js/com.js"></script>
+<script src="js/main.js"></script>
 <script>
     var tabsSwiper = new Swiper('.swiper-container', {
         speed: 500,
