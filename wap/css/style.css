@@ -7,7 +7,7 @@ header {
 	height: 2.2rem;
     line-height: 2.2rem;
     /*background: rgba(0,0,0,0.4); */
-    background: #222
+    background: #000
 
 }
 .header {
@@ -260,8 +260,8 @@ header {
 
 .menu-icon-wrapper svg {
     position: absolute;
-    top: -1.4rem;
-    left: -1.2rem;
+    top: -32px;
+    left: -21px;
     -webkit-transform: scale(0.08);
     -ms-transform: scale(0.08);
     transform: scale(0.08);
@@ -272,7 +272,7 @@ header {
 
 .menu-icon-wrapper svg path {
     stroke: #fff;
-    stroke-width: 35px;
+    stroke-width: 30px;
     stroke-linecap: round;
     stroke-linejoin: round;
     fill: transparent;
