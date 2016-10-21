@@ -10,14 +10,14 @@ $(function() {
 
     $popup.html(template);
 
-    $('body').on('click','.event-icon', function() {
-        if($('.popup').hasClass('trans')) {
-            $('.popup').removeClass('trans')
-        } else {
-            $('.popup').addClass('trans');
+    // $('body').on('click','.event-icon', function() {
+    //     if($('.popup').hasClass('trans')) {
+    //         $('.popup').removeClass('trans')
+    //     } else {
+    //         $('.popup').addClass('trans');
 
-        }
-    })
+    //     }
+    // })
     $('body').on('click','.contact', function() {
         $('.popup').removeClass('trans');
     })

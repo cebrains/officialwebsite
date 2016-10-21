@@ -124,19 +124,24 @@
             /*flex: auto;*/
             width: 100px;
         }
+        .control {
+            width: 3rem;
+            height: 3rem;
+            margin: 0 auto;
+        }
 
     </style>
 </head>
 <body>
-<header>
+<header class="jia">
     <section class="header">
-        <div id="menu-icon-wrapper" class="menu-icon-wrapper" style="visibility: visible;">
-            <svg width="700px" height="700px">
-                <path id="pathA" d="M 300 400 L 700 400 C 900 400 900 750 600 850 A 400 400 0 0 1 200 200 L 800 800" style="stroke-dashoffset: 5803.15; stroke-dasharray: 2901.57, 2981.57, 240;"></path>
-                <path id="pathB" d="M 300 500 L 700 500" style="stroke-dashoffset: 800; stroke-dasharray: 400, 480, 240;"></path>
-                <path id="pathC" d="M 700 600 L 300 600 C 100 600 100 200 400 150 A 400 380 0 1 1 200 800 L 800 200" style="stroke-dashoffset: 6993.11; stroke-dasharray: 3496.56, 3576.56, 240;"></path>
+        <div id="menu-icon-wrapper2" class="menu-icon-wrapper" style="visibility: visible;">
+            <svg width="1000px" height="1000px">
+                <path id="pathD" d="M 300 400 L 700 400 C 900 400 900 750 600 850 A 400 400 0 0 1 200 200 L 800 800" style="stroke-dashoffset: 5803.15; stroke-dasharray: 2901.57, 2981.57, 240;"></path>
+                <path id="pathE" d="M 300 500 L 700 500" style="stroke-dashoffset: 800; stroke-dasharray: 400, 480, 240;"></path>
+                <path id="pathF" d="M 700 600 L 300 600 C 100 600 100 200 400 150 A 400 380 0 1 1 200 800 L 800 200" style="stroke-dashoffset: 6993.11; stroke-dasharray: 3496.56, 3576.56, 240;"></path>
             </svg>
-            <button id="menu-icon-trigger" class="menu-icon-trigger"></button>
+            <button id="menu-icon-trigger2" class="menu-icon-trigger"></button>
         </div>
         <span class="header-title">大数医达</span>
     </section>
@@ -146,7 +151,8 @@
 </div>
     <div class="tabs">
         <a href="#" class="active">
-            <svg  class="intr-svg" viewBox="0 0 595.3 841.9">
+            <div class="control">
+                 <svg  class="intr-svg" viewBox="0 0 595.3 841.9">
                         <style type="text/css">
                             .st0{fill-rule:evenodd;clip-rule:evenodd;fill:#272536;}
                         </style>
@@ -161,11 +167,13 @@
                                 L179.4,520z"></path>
                         </g>
                     </svg>
+            </div>
             <span>医疗</span>
             <p>大数据平台</p>
         </a>
         <a href="#" style="margin:0 17px" class="">
-            <svg version="1.1" class="intr-svg" x="0px" y="0px" viewBox="0 0 595.3 841.9" style="enable-background:new 0 0 595.3 841.9;" xml:space="preserve">
+            <div class="control">
+                <svg class="intr-svg" x="0px" y="0px" viewBox="0 0 595.3 841.9" style="height: 1.6rem; margin-top: 0.2rem">
                 <style type="text/css">
                     .st0{fill:#272536;}
                 </style>
@@ -192,11 +200,13 @@
                         c32.7,0,58.6-25.9,58.6-58.6c0-32.7-25.9-58.6-58.6-58.6s-58.6,25.9-58.6,58.6C-112,570.7-86.1,598-53.4,598L-53.4,598z"></path>
                 </g>
                 </svg>
+            </div>
             <span>医疗</span>
             <p>知识图谱</p>
         </a>
         <a href="#" class="">
-            <svg version="1.1" class="intr-svg" viewBox="0 0 595.3 841.9">
+            <div class="control">
+                <svg class="intr-svg" viewBox="0 0 595.3 841.9" style="margin-top: -0.1rem">
                     <style type="text/css">
                         .st0{fill-rule:evenodd;clip-rule:evenodd;fill:#272536;}
                     </style>
@@ -231,11 +241,13 @@
                             c0-0.7-0.1-1.3-0.1-1.9c0,0,0,0,0,0H306.9L306.9,788.6L306.9,788.6z"></path>
                     </g>
                  </svg>
+            </div>
             <span>临床</span>
             <p>辅助决策</p>
         </a>
         <a href="#" class="">
-            <svg class="intr-svg" viewBox="0 0 595.3 841.9">
+            <div class="control">
+                 <svg class="intr-svg" viewBox="0 0 595.3 841.9" style="height: 1.7rem;margin-top: 0.2rem">
                     <style type="text/css">
                         .st0{fill-rule:evenodd;clip-rule:evenodd;fill:#272536;}
                     </style>
@@ -254,6 +266,7 @@
                             c7.4,5.3,12.3,13.7,12.3,23.3C614.4,751.7,600.9,764.7,584.1,764.7L584.1,764.7 M584.1,764.7L584.1,764.7z"></path>
                     </g>
                 </svg>
+            </div>
             <span>患者</span>
             <p>自诊工具</p>
         </a>
