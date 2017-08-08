@@ -1,0 +1,108 @@
+body{
+    background: #f6f6f6;
+}
+/*头部*/
+.header{
+    width:100%;
+    height:300px;
+    background: url('../images/banner2.jpg') no-repeat;
+    background-position: center;
+}
+.header .headerNavWrap{
+    background: rgba(0,0,0,.5);
+}
+.header .headerNav{
+    width:1200px;
+    height:100px;
+    margin: 0 auto;
+}
+.header .headerNav .logo {
+
+}
+.header .headerNav .nav a{
+    display: block;
+    width:50px;
+    height:100%;
+    line-height: 100px;
+    text-align: center;
+    font-size:18px;
+    color: #fff;
+}
+.header .headerTitle{
+    font-size: 58px;
+    text-align: center;
+    color: #fff;
+    margin-top: 65px;
+}
+
+/*内容*/
+.cont{
+    width:1200px;
+    margin:0 auto;
+    background: #fff;
+    padding:50px 50px 100px;
+    box-sizing: border-box;
+}
+/*内容 -> 导航*/
+.cont .contLeftNav{
+    width:150px;
+}
+.cont .contLeftNav ul li{
+    width:100%;
+    height:50px;
+    line-height: 50px;
+    text-align: center;
+    font-size: 18px;
+    border-bottom:1px solid rgba(42,63,84,.1);
+    color: #34495E;
+}
+.cont .contLeftNav ul li.active{
+    color: #41B8B0;
+}
+
+/*内容 -> 药品信息*/
+.cont .contRight{
+    width:950px;
+    padding:0 50px;
+    box-sizing: border-box;
+}
+.cont .contRight>ul .imgWrap{
+    width:100%;
+    height:300px;
+    position: relative;
+}
+.cont .contRight>ul .imgWrap .bannerImg{
+    width:100%;
+    height:100%;
+    margin:0 auto;
+    background-repeat:no-repeat;
+    background-image: url('../images/er/1.JPG');
+    background-size: contain;
+    background-position: center;
+    position: absolute;
+    top:0;
+    left:0;
+    opacity: 0;
+    transition: .5s;
+}
+
+.cont .contRight .drug h4{
+    height: 50px;
+    line-height: 50px;
+    font-size: 20px;
+    color:#41B8B0;
+}
+.cont .contRight .drugInfoList{
+    line-height: 24px;
+    font-size:14px;
+    margin-bottom:10px;
+}
+.cont .contRight .drugInfoList .title{
+    margin-right: 10px;
+    color:#41B8B0;
+}
+
+.cont .contRight .drugInfoList .detail{
+    margin-right: 10px;
+    color:rgba(52,73,94,.8);
+}
