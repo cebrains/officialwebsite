@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>大数医达——后台管理系统</title>
+    <link href="./common/bootstrap3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="./common/css/reset.css" rel="stylesheet"/>
+    <link href="./common/css/reset.css" rel="stylesheet"/>
+    <link href="./css/manage.css" rel="stylesheet"/>
+    <script>
+        var userLogin=window.sessionStorage.getItem('userLogin');
+        if(!userLogin){
+            location.href='file:///Users/lian/Documents/workspaces/officialwebsite/www/manager/index.html'
+        }
+    </script>
+
+</head>
+<body style="background: #fff">
+<div class="container-fluid" style="width: 100%;padding:40px 0 50px; background: #fff">
+
+    <div class="col-sm-2" id="manage_left">
+        <div class="btn-group-vertical" role="group" style="width: 100%">
+            <button type="button" class="btn btn-default user_manage">用户管理</button>
+
+            <div class="btn-group" role="group">
+                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                    药品分类
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu category_list" style="width: 100%">
+                </ul>
+            </div>
+            <div class="btn-group" role="group">
+                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                    药品状态
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" style="width: 100%">
+                    <li class="stateList active" data-state="all"><a href="javascript:void(0)" >所有状态</a></li>
+                    <li class="stateList" data-state="normal"><a href="javascript:void(0)" >正常</a></li>
+                    <li class="stateList" data-state="soldout"><a href="javascript:void(0)" >已下架</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-10 manage_table" id="manage_right">
+        <div class="drug_list">
+            <h4 class="table_title">药品信息列表</h4>
+            <div style="min-height: 520px">
+                <table class="table table-hover table_list">
+                    <thead>
+                    <tr>
+                        <th>名称</th>
+                        <th>所属分类</th>
+                        <th>操作</th>
+                        <th>状态</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+            <ul class="pagination clearfix" style="width: 100%">
+                <li class="fll prev_page" style="width: 10%">
+                    <a href="javascript:void(0)" style="width: 100%;text-align: center">上一页</a>
+                </li>
+                <li class="flr next_page" style="width: 10%">
+                    <a href="javascript:void(0)" style="width: 100%;text-align: center">下一页</a>
+                </li>
+                <li class="fll current_page" style="width: 38%;text-align: right;margin-right:2%">
+                    第5页
+                </li>
+                <li class="fll total_page" style="width: 38%;text-align: left;margin-left:2%">
+                    共10页
+                </li>
+            </ul>
+        </div>
+        <div class="edit_page">
+            <h4 class="title"></h4>
+            <form class="form-horizontal">
+                <div class="form-group">
+                    <label class="col-sm-1 control-label">分类</label>
+                    <div class="col-sm-11">
+                        <select class="form-control category_select">
+                        </select>
+                    </div>
+                </div>
+            </form>
+            <form class="form-horizontal form_list">
+
+            </form>
+            <div class="form-group">
+                <div class="col-sm-offset-1 col-sm-2">
+                    <div class="btn btn-primary sure_btn" style="width:100%">保存</div>
+                </div>
+                <div class="col-sm-2">
+                    <div class="btn btn-default addinfo_btn" style="width:100%">添加信息</div>
+                </div>
+                <div class="col-sm-2">
+                    <div class="btn btn-default soldup_btn" style="width:100%">上架</div>
+                </div>
+                <div class="col-sm-2">
+                    <div class="btn btn-default soldout_btn" style="width:100%">下架</div>
+                </div>
+                <div class="col-sm-2">
+                    <div class="btn btn-default cancel_btn" style="width:100%">取消</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-10 manage_table" id="user_manage" style="display: none;">
+        <div class="drug_list">
+            <h4 >修改密码</h4>
+            <div style="min-height: 520px">
+                <form>
+                    <div class="form-group">
+                        <label for="oldPasswore">原始密码</label>
+                        <input type="password" class="form-control" id="oldPasswore" placeholder="请输入原始密码">
+                    </div>
+                    <div class="form-group">
+                        <label for="firstNewPassword">新密码</label>
+                        <input type="password" class="form-control" id="firstNewPassword" placeholder="请输入新密码">
+                    </div>
+                    <div class="form-group">
+                        <label for="againNewPassword">确认新密码</label>
+                        <input type="password" class="form-control" id="againNewPassword" placeholder="请再次输入新密码">
+                    </div>
+
+                    <button  class="btn btn-primary user_manage_sure">确认</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade add_list" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">添加信息</h4>
+            </div>
+            <div class="modal-body">
+                <input type="text" class="form-control add_modal_inp" value="" placeholder="请输入信息名称">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default add_cancel" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-primary add_sure">确定</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade delete_list_modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">提示</h4>
+            </div>
+            <div class="modal-body">
+                确认要删除么？
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-primary delete_sure">确定</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="./common/js/jquery-3.2.1.min.js" type="text/javascript"></script>
+<script src="./common/bootstrap3.3.7/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="./api/data.js"></script>
+<script src="./api/user.js"></script>
+
+<script>
+    var data=getStorage() || JSON.parse(JSON.stringify(data));
+
+    var listInfo = {
+        category: 'all',
+        state:'all',
+        curPage: 1,
+        pageSize: 2
+    };
+    var list = JSON.parse(JSON.stringify(data));
+
+    renderCategory();
+    renderList(listInfo);
+
+
+    function renderList(params) {
+        var startTr = '<tr>',
+                endTr = '</tr>',
+                dataListStr = '',
+                listNum = 0,
+                dataLen = data.length;
+
+        var pageSize = params.pageSize,
+                curPage = params.curPage;
+
+        var curNum = (curPage - 1) * pageSize,
+                _len=Math.min(list.length,curNum+pageSize);
+
+        for (var i = curNum; i < _len; i++) {
+
+            dataListStr += startTr + '<td>' + list[i].name + '</td>' +
+                    '<td>' + list[i].category + '</td>' +
+                    '<td><span class="cursor-p edit" data-id="' + i + '">编辑</span></td>';
+            if (list[i].state=='soldout') {
+                dataListStr += '<td>已下架</td>' + endTr;
+            } else {
+                dataListStr += '<td>正常</td>' + endTr;
+            }
+
+            if (listNum >= pageSize) {
+                break;
+            }
+        }
+
+        var title=$('.categoryList.active  a').html()+'—'+$('.stateList.active a').html();
+        $('.table_title').html(title);
+
+        var totalPage = Math.ceil(list.length / listInfo.pageSize);
+        $('.current_page').html('第' + curPage + '页');
+        $('.total_page').html('共' + totalPage + '页');
+
+        $('.table_list tbody').html(dataListStr);
+        setStorage();
+    }
+
+    function renderCategory() {
+        var categoryLen = categoryList.length,
+                categoryStr = '';
+        var active='';
+
+        categoryStr += '<li class="categoryList  active" data-category="all"><a href="javascript:void(0)" >全部列表</a></li>';
+        for (var i = 0; i < categoryLen; i++) {
+            categoryStr += '<li class="categoryList" data-category="'+categoryList[i]+'"><a href="javascript:void(0)" >' + categoryList[i] + '</a></li>';
+        }
+        $('.category_list').html(categoryStr);
+
+    }
+
+    function renderCategorySelect(id) {
+        var categoryLen = categoryList.length,
+                optionStr = '';
+        for (var i = 0; i < categoryLen; i++) {
+            if (categoryList[i] == data[id].category) {
+                optionStr += '<option selected>' + categoryList[i] + '</option>';
+            } else {
+                optionStr += '<option>' + categoryList[i] + '</option>';
+            }
+        }
+
+        $('.category_select').html(optionStr);
+    }
+
+    $(document).on('click', '.categoryList', function () {
+        var category = $(this).attr('data-category');
+        $(this).addClass('active').siblings().removeClass('active');
+
+        list=[];
+        for(var i=0;i<data.length;i++){
+            if((listInfo.state=='all'||data[i].state==listInfo.state) && (category=='all' || data[i].category==category)){
+                list.push(data[i]);
+            }
+        }
+
+        listInfo.category=category;
+        listInfo.curPage = 1;
+
+        renderList(listInfo);
+        $('.drug_list').show();
+        $('.edit_page').hide();
+    });
+
+    $(document).on('click','.stateList',function () {
+        var state=$(this).attr('data-state');
+        $(this).addClass('active').siblings().removeClass('active');
+
+        list=[];
+
+        for(var i=0;i<data.length;i++){
+            if((state=='all'||data[i].state==state) && (listInfo.category=='all' || data[i].category==listInfo.category)){
+                list.push(data[i]);
+            }
+        }
+        listInfo.state=state;
+        listInfo.curPage = 1;
+
+
+        renderList(listInfo);
+        $('.drug_list').show();
+        $('.edit_page').hide();
+    })
+
+    $(document).on('click', '.edit', function () {
+        var id = $(this).attr('data-id');
+
+        $('.drug_list').hide();
+        $('.edit_page').show();
+
+        $('.sure_btn').attr('data-id', id);
+        $('.soldup_btn').attr('data-id', id);
+        $('.soldout_btn').attr('data-id', id);
+        $('.cancel_btn').attr('data-id', id);
+
+        renderEditPage(id);
+        renderCategorySelect(id);
+    });
+
+    $(document).on('click', '.prev_page', function () {
+        var page = listInfo.curPage - 1 > 0 ? listInfo.curPage - 1 : 1;
+        listInfo.curPage = page;
+
+        renderList(listInfo);
+    })
+
+    $(document).on('click', '.next_page', function () {
+        var total = Math.ceil(list.length / listInfo.pageSize),
+                page = Math.min(listInfo.curPage + 1, total);
+        listInfo.curPage = page;
+
+        renderList(listInfo);
+    })
+
+    function renderEditPage(id) {
+        var info = data[id],
+                str = '';
+
+        str += '<div class="form-group">' +
+                '<label class="col-sm-1 control-label list_name">图片</label>' +
+                '<div class="col-sm-11">' +
+                '<input type="text" class="form-control list_value"  value="' + info.img.join(' , ') + '">' +
+                '</div>' +
+                '</div>';
+
+        var detail = info.detail;
+        for (var i = 0; i < detail.length; i++) {
+            str += '<div class="form-group">' +
+                    '<label class="col-sm-1 control-label list_name">' + detail[i].title + '</label>' +
+                    '<div class="col-sm-10">' +
+                    '<textarea type="text" class="form-control list_value" rows="3">' + detail[i].text + '</textarea>' +
+                    '</div>';
+            if (i == 0) {
+                str += '</div>';
+            } else {
+                str += '<div class="col-sm-1 cursor-p delete_list" data-idx="' + i + '">删除</div>' +
+                        '</div>';
+            }
+        }
+
+
+        $('.edit_page .title').html(info.name);
+        $('.edit_page .form_list').html(str);
+    }
+
+    $('.sure_btn').click(function () {
+
+        var labelList = $('.form_list .list_name'),
+                inpList = $('.form_list .list_value'),
+                category = $('.category_select').val(),
+                id = $(this).attr('data-id'),
+                listLen = labelList.length;
+
+        var imgArr = inpList[0].value.split(',');
+
+        var json = {
+            id: id,
+            name: inpList[1].value,
+            category: category,
+            img: [],
+            detail: []
+        };
+
+        for (var i = 0; i < imgArr.length; i++) {
+            imgArr[i] = $.trim(imgArr[i]);
+        }
+        json.img = imgArr;
+
+        for (var i = 1; i < listLen; i++) {
+            var _json = {
+                title: labelList[i].innerText,
+                text: inpList[i].value,
+            }
+            json.detail.push(_json);
+        }
+
+        data[i] = json;
+
+        renderList(listInfo);
+        $('.cancel_btn').click();
+
+    });
+
+    $('.cancel_btn').click(function () {
+        $('.drug_list').show();
+        $('.edit_page').hide();
+    });
+
+    $('.soldup_btn').click(function () {
+        var id = $(this).attr('data-id');
+        data[id].state = 'normal';
+        renderList(listInfo);
+        $('.cancel_btn').click();
+    });
+
+    $('.soldout_btn').click(function () {
+        var id = $(this).attr('data-id');
+        data[id].state = 'soldout';
+        renderList(listInfo);
+        $('.cancel_btn').click();
+    });
+
+    $('.addinfo_btn').click(function () {
+        $('.add_list').modal('show');
+    });
+
+    $('.add_sure').click(function () {
+        var value = $('.add_modal_inp').val(),
+                len = $('.form_list .list_name').size;
+        if (value == '') {
+            return;
+        }
+        var str = '';
+        str = '<div class="form-group">' +
+                '<label class="col-sm-1 control-label list_name">' + value + '</label>' +
+                '<div class="col-sm-10">' +
+                '<textarea type="text" class="form-control list_value" rows="3"></textarea>' +
+                '</div>' +
+                '<div class="col-sm-1 cursor-p delete_list" data-idx="' + len + '">删除</div>' +
+                '</div>';
+
+        $('.form_list').append(str);
+        $('.add_list').modal('hide');
+    })
+
+    $(document).on('click', '.delete_list', function () {
+        var idx = $(this).attr('data-idx');
+        $('.delete_sure').attr('data-idx', idx);
+        $('.delete_list_modal').modal('show');
+    })
+    $('.delete_sure').click(function () {
+        var idx = $(this).attr('data-idx'),
+                id = $('.sure_btn').attr('data-id');
+        data[id].detail.splice(idx, 1);
+        renderEditPage(id);
+        $('.delete_list_modal').modal('hide');
+    })
+
+    $('.user_manage').click(function () {
+        $('#manage_right').hide();
+        $('#user_manage').show();
+    })
+
+    $('.user_manage_sure').click(function () {
+        var oldPsw=$('#oldPasswore').val(),
+                firseNewPsw=$('#firstNewPassword').val(),
+                againNewPsw=$('#againNewPassword').val();
+
+        var userInfo=JSON.parse(window.localStorage.getItem('_rx_manager_user'));
+
+        if(userInfo.password != oldPsw){
+            alert('原始密码不正确');
+            return;
+        }
+
+        if(firseNewPsw.length<6 || firseNewPsw.length>16){
+            alert('新密码长度6～16位');
+            return;
+        }
+
+        if(firseNewPsw != againNewPsw){
+            alert('两次输入的密码不一样');
+            return;
+        }
+
+        for(var i=0;i<userList.length;i++){
+            if(userList[i].id==userInfo.id){
+                var json={
+                    id:userInfo.id,
+                    username:userInfo.username,
+                    password:firseNewPsw
+                }
+                userList[i]=json;
+                window.localStorage.setItem('_rx_manager_user',JSON.stringify(json));
+            }
+        }
+
+    });
+
+    function setStorage(){
+        var storage=window.localStorage;
+        storage.setItem('_drug_rx_data',JSON.stringify(data))
+    }
+
+    function getStorage() {
+        var storage=window.localStorage;
+
+        if(storage.getItem('_drug_rx_data')){
+            return JSON.parse(storage.getItem('_drug_rx_data'));
+        }else{
+            return false;
+        }
+    }
+
+
+
+
+</script>
+</body>
+</html>

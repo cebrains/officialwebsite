@@ -1,0 +1,28 @@
+#manage_left{
+    background: #fff;
+}
+#manage_right{
+    background: #fff;
+}
+#manage_right h4,#user_manage h4{
+    height: 100px;
+    line-height: 100px;
+    color: #34495E;
+}
+#manage_right table td,#manage_right table th{
+    height: 30px;
+    line-height: 30px;
+}
+#manage_right table td span{
+    display: inline-block;
+    width: 50px;
+    color: #41B8B0;
+}
+#manage_right .edit_page{
+    min-height: 720px;
+    display: none;
+}
+#manage_right .delete_list{
+    padding-top:20px;
+    color: #999;
+}

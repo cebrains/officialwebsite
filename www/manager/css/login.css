@@ -1,0 +1,21 @@
+#login{
+    width:660px;
+    height:460px;
+    padding:30px 50px;
+    margin:100px auto 0;
+    background: #fff;
+}
+#login h2{
+    height:100px;
+    line-height: 100px;
+    text-align: center;
+    color: #0D263F;
+}
+#login .login_btn{
+    width:100%;
+    margin:30px auto;
+}
+#login .error_msg{
+    color: #D96F6E;
+    display: none;
+}
