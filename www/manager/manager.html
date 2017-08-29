@@ -190,7 +190,7 @@
         category: 'all',
         state:'all',
         curPage: 1,
-        pageSize: 2
+        pageSize: 10
     };
     var list = JSON.parse(JSON.stringify(data));
 
@@ -199,6 +199,9 @@
 
 
     function renderList(params) {
+
+//        list = JSON.parse(JSON.stringify(data));
+
         var startTr = '<tr>',
                 endTr = '</tr>',
                 dataListStr = '',
@@ -215,7 +218,7 @@
 
             dataListStr += startTr + '<td>' + list[i].name + '</td>' +
                     '<td>' + list[i].category + '</td>' +
-                    '<td><span class="cursor-p edit" data-id="' + i + '">编辑</span></td>';
+                    '<td><span class="cursor-p edit" data-id="' + list[i].id + '">编辑</span></td>';
             if (list[i].state=='soldout') {
                 dataListStr += '<td>已下架</td>' + endTr;
             } else {
@@ -391,12 +394,25 @@
         for (var i = 1; i < listLen; i++) {
             var _json = {
                 title: labelList[i].innerText,
-                text: inpList[i].value,
+                text: inpList[i].value
             }
             json.detail.push(_json);
         }
 
-        data[i] = json;
+        for(var i=0;i<data.length;i++){
+            if(data[i].id==id){
+                data[i] = json;
+                break;
+            }
+        }
+
+//        list = JSON.parse(JSON.stringify(data));
+        for(var i=0;i<list.length;i++){
+            if(list[i].id==id){
+                list[i]=json;
+                break;
+            }
+        }
 
         renderList(listInfo);
         $('.cancel_btn').click();
@@ -411,6 +427,12 @@
     $('.soldup_btn').click(function () {
         var id = $(this).attr('data-id');
         data[id].state = 'normal';
+//        list = JSON.parse(JSON.stringify(data));
+        for(var i=0;i<list.length;i++){
+            if(list[i].id==id){
+                list[i].state='normal'
+            }
+        }
         renderList(listInfo);
         $('.cancel_btn').click();
     });
@@ -418,6 +440,13 @@
     $('.soldout_btn').click(function () {
         var id = $(this).attr('data-id');
         data[id].state = 'soldout';
+//        list = JSON.parse(JSON.stringify(data));
+
+        for(var i=0;i<list.length;i++){
+            if(list[i].id==id){
+                list[i].state='soldout'
+            }
+        }
         renderList(listInfo);
         $('.cancel_btn').click();
     });
@@ -454,6 +483,14 @@
         var idx = $(this).attr('data-idx'),
                 id = $('.sure_btn').attr('data-id');
         data[id].detail.splice(idx, 1);
+
+        for(var i=0;i<list.length;i++){
+            if(list[i].id==id){
+                list[i].detail.splice(idx, 1)
+            }
+        }
+
+//        list = JSON.parse(JSON.stringify(data));
         renderEditPage(id);
         $('.delete_list_modal').modal('hide');
     })
