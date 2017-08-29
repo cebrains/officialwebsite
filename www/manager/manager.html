@@ -14,7 +14,9 @@
     <script>
         var userLogin=window.sessionStorage.getItem('userLogin');
         if(!userLogin){
-            location.href='file:///Users/lian/Documents/workspaces/officialwebsite/www/manager/index.html'
+            location.href='/manager/index.html'
+//            location.href='file:///Users/lian/Documents/workspaces/officialwebsite/www/manager/index.html'
+
         }
     </script>
 
@@ -285,6 +287,10 @@
         renderList(listInfo);
         $('.drug_list').show();
         $('.edit_page').hide();
+
+        $('#manage_right').show();
+        $('#user_manage').hide();
+
     });
 
     $(document).on('click','.stateList',function () {
@@ -305,6 +311,8 @@
         renderList(listInfo);
         $('.drug_list').show();
         $('.edit_page').hide();
+        $('#manage_right').show();
+        $('#user_manage').hide();
     })
 
     $(document).on('click', '.edit', function () {
