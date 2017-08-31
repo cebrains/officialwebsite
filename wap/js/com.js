@@ -4,7 +4,7 @@ $(function() {
 
     var template = "<ul>" +
         "<li><a href='index.html'>首页</a></li>" +
-        "<li><a href='pm.html'>产品介绍</a></li>" +
+        "<li><a href='pm.html'>平台信息</a></li>" +
         "<li><a href='index.html#contact' class='contact'>联系我们</a></li>" +
         "</ul>"
 
